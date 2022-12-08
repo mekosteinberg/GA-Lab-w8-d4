@@ -7,9 +7,15 @@ const cors = require('cors')
 const app = express();
 const Posts = require('./models/post')
 
-//========================================
-//===============ROUTES===================
-//========================================
+//==============================================
+//====================MIDDLEWARE================
+//==============================================
+app.use(express.json());
+app.use(cors())
+
+//==============================================
+//====================ROUTES====================
+//==============================================
 app.post('/blog', (req, res) => {
     Posts.create(req.body, (err, createdPost) => {
         res.json(createdPost)
@@ -22,9 +28,21 @@ app.get('/blog', (req, res) => {
     })
 })
 
-//====================
-//======LISTENERS=====
-//====================
+app.delete('/blog/:id', (req, res) => {
+    Posts.findByIdAndRemove(req.params.id, (err, deletedPost) => {
+        res.json(deletedPost)
+    })
+})
+
+app.put('/blog/:id', (req, res) => {
+    Posts.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedPost) => {
+        res.json(updatedPost)
+    })
+})
+
+//==============================================
+//==================LISTENERS===================
+//==============================================
 app.listen(3000, () => {
     console.log('listening')
 })
