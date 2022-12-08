@@ -1,2 +1,0 @@
-Patrick Murphy
-Meko Steinberg
