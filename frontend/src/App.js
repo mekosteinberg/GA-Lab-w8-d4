@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container } from '@mui/system';
-import { AppBar, Box, Button, Card, CardActions, CardContent, CardMedia, FormGroup, Grid, Modal, Paper, stepContentClasses, TextareaAutosize, TextField, Typography } from '@mui/material';
+import { AppBar, Box, Button, Card, CardActions, CardContent, CardMedia, FormGroup, Grid, Modal, Paper, TextField, Typography } from '@mui/material';
 
 //from MUI Modal docs
 const modalstyle = {
@@ -15,7 +15,6 @@ const modalstyle = {
   boxShadow: 24,
   p: 2,
 };
-
 
 const App = () => {
   //initial blog setup for useState
@@ -132,7 +131,7 @@ const App = () => {
     })
 
   }, [])
-      
+
   return (
 
     <Container>
@@ -195,16 +194,17 @@ const App = () => {
                   label="Date"
                   variant="outlined"
                   value={rantDate} />
-                <TextField sx={{ width: 450, m: 1, p: 1 }}
+                <TextField sx={{ width: 700, m: 1, p: 1 }}
                   onChange={handleChange(setRantImage)}
-                  id="outlined-basic"
+                  multiline maxRows={2}
+                  id="outlined-multiline-flexible"
                   label="Image"
                   variant="outlined"
                   value={rantImage} /><br />
                 <TextField
                   sx={{ width: 700, m: 1, p: 1 }}
                   rows={4}
-                  maxRows={6}
+                  multiline maxRows={8}
                   onChange={handleChange(setRantContent)}
                   id="outlined-multiline-flexible"
                   label="Content"
@@ -248,14 +248,16 @@ const App = () => {
                 value={rantDate} />
               <TextField sx={{ width: 500, m: 1, p: 1 }}
                 onChange={handleChange(setRantImage)}
-                id="outlined-basic"
+                id="outlined-multiline-flexible"
+                multiline maxRows={2}
                 label="Image"
                 variant="outlined"
                 value={rantImage} />
               <TextField
                 sx={{ width: 700, m: 1, p: 1 }}
                 onChange={handleChange(setRantContent)}
-                id="outlined-basic"
+                multiline maxRows={8}
+                id="outlined-multiline-flexible"
                 label="Content"
                 variant="outlined"
                 value={rantContent} /><br />
