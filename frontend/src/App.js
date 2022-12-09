@@ -172,9 +172,8 @@ const App = () => {
       </Grid>
 
       <Grid align="center">
-        {isAddARantVisible
-          ? addRant.map((newRant, index) => {
-            return (
+        {isAddARantVisible 
+          && 
               <Paper align="left" sx={{ width: { sm: 750 }, m: 1 }} elevation={4}>
                 <FormGroup>
                   <Typography sx={{ mt: 2, p: 2 }} variant="h5"><strong>RANT AWAY!</strong></Typography>
@@ -215,8 +214,7 @@ const App = () => {
                   </form>
                 </FormGroup>
               </Paper>
-            )
-          }) : <></>}
+        }
       </Grid>
 
       <Modal
