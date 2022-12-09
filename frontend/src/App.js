@@ -130,9 +130,11 @@ const App = () => {
       setRants(response.data)
       setAddRant(response.data)
     })
-  }, [])
 
+  }, [])
+      
   return (
+
     <Container>
 
       <Paper>
@@ -264,8 +266,6 @@ const App = () => {
           </FormGroup>
         </Box>
       </Modal>
-
-
 
     </Container>
   )
