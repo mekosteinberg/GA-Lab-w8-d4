@@ -5,7 +5,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const app = express();
-const Posts = require('./models/post')
+const Posts = require('./models/post.js')
 
 //==============================================
 //====================MIDDLEWARE================
