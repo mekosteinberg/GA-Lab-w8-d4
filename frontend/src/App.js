@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container } from '@mui/system';
-import { AppBar, Box, Button, Card, CardActions, CardContent, CardMedia, FormGroup, Grid, Modal, Paper, stepContentClasses, TextField, Typography } from '@mui/material';
+import { AppBar, Box, Button, Card, CardActions, CardContent, CardMedia, FormGroup, Grid, Modal, Paper, stepContentClasses, TextareaAutosize, TextField, Typography } from '@mui/material';
 
 //from MUI Modal docs
 const modalstyle = {
@@ -139,7 +139,8 @@ const App = () => {
 
       <Paper>
         <AppBar position="static" sx={{ m: 2, ml: 0, p: 2, bgcolor: 'primary' }}>
-          <Typography variant="h3">Blog Rant</Typography>
+          <Typography variant="h3">Top Movie Rants</Typography>
+          <Typography variant="h6">You can't handle these rants!</Typography>
         </AppBar>
       </Paper>
 
@@ -174,48 +175,50 @@ const App = () => {
       </Grid>
 
       <Grid align="center">
-        {isAddARantVisible 
-          && 
-              <Paper align="left" sx={{ width: { sm: 750 }, m: 1 }} elevation={4}>
-                <FormGroup>
-                  <Typography sx={{ mt: 2, p: 2 }} variant="h5"><strong>RANT AWAY!</strong></Typography>
-                  <form onSubmit={handleNewRantFormSubmit}>
-                    <TextField
-                      sx={{ m: 1, p: 1 }}
-                      onChange={handleChange(setRantTitle)}
-                      id="outlined-basic"
-                      label="Title"
-                      variant="outlined"
-                      value={rantTitle} />
-                    <TextField
-                      sx={{ m: 1, p: 1 }}
-                      onChange={handleChange(setRantDate)}
-                      id="outlined-basic"
-                      label="Date"
-                      variant="outlined"
-                      value={rantDate} />
-                    <TextField sx={{ m: 1, p: 1 }}
-                      onChange={handleChange(setRantImage)}
-                      id="outlined-basic"
-                      label="Image"
-                      variant="outlined"
-                      value={rantImage} />
-                    <TextField
-                      sx={{ m: 1, p: 1 }}
-                      onChange={handleChange(setRantContent)}
-                      id="outlined-multiline-flexible"
-                      label="Content"
-                      variant="outlined"
-                      value={rantContent} />
-                    <Button
-                      sx={{ m: 2 }}
-                      variant="contained"
-                      type="submit"
-                      color="secondary"
-                    >Submit</Button>
-                  </form>
-                </FormGroup>
-              </Paper>
+        {isAddARantVisible
+          &&
+          <Paper align="left" sx={{ width: { sm: 750 }, m: 1 }} elevation={4}>
+            <FormGroup>
+              <Typography sx={{ mt: 2, p: 2 }} variant="h4"><strong>RANT AWAY!</strong></Typography>
+              <form onSubmit={handleNewRantFormSubmit}>
+                <TextField
+                  sx={{ m: 1, p: 1 }}
+                  onChange={handleChange(setRantTitle)}
+                  id="outlined-basic"
+                  label="Title"
+                  variant="outlined"
+                  value={rantTitle} />
+                <TextField
+                  sx={{ m: 1, p: 1 }}
+                  onChange={handleChange(setRantDate)}
+                  id="outlined-basic"
+                  label="Date"
+                  variant="outlined"
+                  value={rantDate} />
+                <TextField sx={{ width: 450, m: 1, p: 1 }}
+                  onChange={handleChange(setRantImage)}
+                  id="outlined-basic"
+                  label="Image"
+                  variant="outlined"
+                  value={rantImage} /><br />
+                <TextField
+                  sx={{ width: 700, m: 1, p: 1 }}
+                  rows={4}
+                  maxRows={6}
+                  onChange={handleChange(setRantContent)}
+                  id="outlined-multiline-flexible"
+                  label="Content"
+                  variant="outlined"
+                  value={rantContent} /><br />
+                <Button
+                  sx={{ m: 2 }}
+                  variant="contained"
+                  type="submit"
+                  color="success"
+                >Submit</Button>
+              </form>
+            </FormGroup>
+          </Paper>
         }
       </Grid>
 
@@ -243,24 +246,24 @@ const App = () => {
                 label="Date"
                 variant="outlined"
                 value={rantDate} />
-              <TextField sx={{ m: 1, p: 1 }}
+              <TextField sx={{ width: 500, m: 1, p: 1 }}
                 onChange={handleChange(setRantImage)}
                 id="outlined-basic"
                 label="Image"
                 variant="outlined"
                 value={rantImage} />
               <TextField
-                sx={{ m: 1, p: 1 }}
+                sx={{ width: 700, m: 1, p: 1 }}
                 onChange={handleChange(setRantContent)}
                 id="outlined-basic"
                 label="Content"
                 variant="outlined"
-                value={rantContent} />
+                value={rantContent} /><br />
               <Button
                 sx={{ m: 2 }}
                 variant="contained"
                 type="submit"
-                color="secondary"
+                color="success"
               >Submit</Button>
             </form>
           </FormGroup>
